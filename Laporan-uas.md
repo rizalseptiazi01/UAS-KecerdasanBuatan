@@ -48,4 +48,4 @@ Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan po
 
 ### **Visualisasi Distribusi Data (EDA):**
 Berikut adalah grafik sebaran jumlah gambar pada tiap kelas sebelum dilakukan ekstraksi fitur koordinat:
-*(Masukkan gambar diagram batang hijau kamu di sini setelah diupload ke GitHub)*
+<img width="785" height="388" alt="Screenshot 2026-06-27 064327" src="https://github.com/user-attachments/assets/26e3e206-12bf-4b7d-97dd-da5ffb8ad025" />
