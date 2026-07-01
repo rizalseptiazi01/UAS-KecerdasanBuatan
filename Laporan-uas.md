@@ -25,9 +25,9 @@ Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan po
 ## 2. Data Understanding
 
 * **Sumber Data:**
-    Data dikumpulkan melalui simulasi manual perekaman gerakan shalat dari beberapa aktor dengan variasi sudut pandang kamera dan pencahayaan.
+    Sumber dalam pengumpulan data didapat dari Kaggle.com yang dimana dengan menggunakan kata kunci "Salat Posture", dengan nama dataset ialah IMCSPD (Islamic Multi-Category Salat Posture Dataset). Di dalamnya terdapat banyak gambar-gambar mengenai berbagai posture gerakan shalat. Total jumlah sampel/label pada dataaset ini sekitar 25 sampel/label, dan yang difokuskan hanya 7 sampel/label.(Sumber Kaggle IMCSPD:https://www.kaggle.com/datasets/baizidkamruzzaman19/imcspd).
 * **Ukuran dan Format Data:**
-    * **Data Awal:** Berupa ratusan file gambar (.png/.jpeg) yang tersebar ke dalam 7 folder kelas gerakan. Total sampel yang siap diekstrak adalah 532 gambar (425 data latih dan 107 data uji).
+    * **Data Awal:** Berupa ratusan file gambar yang tersebar ke dalam 7 folder kelas gerakan. Total sampel yang siap diekstrak adalah 532 gambar (425 data latih dan 107 data uji).
     * **Data Akhir:** Berupa berkas tabel berekstensi `.csv` bernama `dataset_koordinat_shalat.csv`.
 * **Tipe Data dan Target Klasifikasi:**
     Tipe data input adalah data numerik (berupa koordinat *floating-point*). Target klasifikasi terdiri dari **7 kelas gerakan shalat**, yaitu:
