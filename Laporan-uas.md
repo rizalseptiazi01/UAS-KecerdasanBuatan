@@ -46,7 +46,7 @@ Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan po
     * `v`: *Visibility* (Tingkat kejelasan visual sendi dari halangan objek lain).
     Total fitur input dalam CSV adalah **132 kolom fitur** ($33 \text{ sendi} \times 4 \text{ atribut}$).
 
-### **Visualisasi Distribusi Data (EDA):**
+### 3. **Visualisasi Distribusi Data (EDA):**
 Berikut adalah grafik sebaran jumlah gambar pada tiap kelas sebelum dilakukan ekstraksi fitur koordinat:
 <img width="785" height="388" alt="Screenshot 2026-06-27 064327" src="https://github.com/user-attachments/assets/26e3e206-12bf-4b7d-97dd-da5ffb8ad025" />
 Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal untuk tiap gerakan shalat adalah sebagai berikut:
@@ -63,7 +63,7 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
 ### **Insight Awal dari Pola Data:**
   Meskipun jumlah gambar bervariasi, pola spasial dari 33 titik koordinat sendi yang diekstrak oleh MediaPipe bersifat unik untuk setiap pose. Hal ini memungkinkan algoritma pengenal pola mengenali ciri khas sudut tubuh secara konsisten pada tahap pemodelan.
 
-## 5. Data Preparation
+## 4. Data Preparation
 
 * **Pembersihan Data:**
   Pembersihan dilakukan saat proses ekstraksi titik koordinat. Gambar-gambar yang gagal dideteksi kerangka skeletonnya oleh MediaPipe secara otomatis dilewati (*dropped*) agar tidak menghasilkan nilai kosong (*null value*) di file CSV.
@@ -75,7 +75,7 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
 * **Split Data:**
   Data dibagi secara proporsional dengan rasio **80% untuk Data Latih (425 sampel)** dan **20% untuk Data Uji (107 sampel)** menggunakan fungsi `train_test_split` dengan parameter `stratify=Y_encoded` guna menjamin distribusi representasi kelas yang seimbang pada kedua bagian data.
 
-## 6. Modeling
+## 5. Modeling
 
 * **Pemilihan Algoritma:**
   Proyek ini memilih dan mengimplementasikan **Artificial Neural Network (ANN)** Sekuensial setelah mengevaluasi keterbatasan **Convolutional Neural Network (CNN)**.
@@ -90,7 +90,7 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
   * *Output Layer*: Dense 7 neuron dengan fungsi aktivasi *Softmax*.
   Model dikompilasi menggunakan *Adam Optimizer* dan *Categorical Crossentropy*, lalu dilatih selama 60 epoch.
 
-## 7. Evaluation
+## 6. Evaluation
 
 * **Metrik Evaluasi (Classification Report):**
   
