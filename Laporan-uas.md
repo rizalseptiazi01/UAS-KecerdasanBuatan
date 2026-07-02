@@ -93,9 +93,27 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
 ## 7. Evaluation
 
 * **Metrik Evaluasi (Classification Report):**
+  
+  <img width="340" height="201" alt="Screenshot 2026-07-02 115441" src="https://github.com/user-attachments/assets/63ddb8ea-3880-4adc-96a9-37fa925d3f35" />
+
   Berdasarkan pengujian final menggunakan 107 data uji yang belum pernah dilihat model, model ANN ini berhasil mendapatkan **Akurasi Makro (Macro Accuracy) mencapai 90% (0.90)**. Nilai *Precision, Recall,* dan *F1-Score* secara rata-rata merata tinggi di atas 85-90% untuk seluruh kelas gerakan shalat.
+  
 * **Confusion Matrix:**
-  <img width="618" height="508" alt="Screenshot 2026-06-27 070154" src="https://github.com/user-attachments/assets/b69cf587-332e-4fda-a272-8f975cb387c8" />
+  
+  <img width="418" height="308" alt="Screenshot 2026-06-27 070154" src="https://github.com/user-attachments/assets/908e7764-8e98-47d6-8f5c-598331985b34" />
+
   Dari matriks kebingungan, garis diagonal utama menunjukkan tumpukan angka tebakan yang benar secara mutlak (contoh: Jalsa benar 21 kali, Qiyam 15 kali, Ruku 14 kali). 
 * **Penjelasan Kinerja Model:**
-  Model ANN terbukti bekerja secara luar biasa stabil dan sehat (*konvergen*), ditunjukkan oleh grafik latihan di mana nilai akurasi terus menanjak dan nilai *loss* menyusut hingga di bawah 0.3. Sedikit kesalahan klasifikasi hanya terjadi pada gerakan *Salam* yang terkadang tertebak sebagai *Jalsa* (duduk), hal ini sangat logis karena posisi anatomi sendi tubuh pada kedua gerakan tersebut memang sama-sama dilakukan dalam posisi duduk di atas lantai.
+  Berdasarkan grafik evaluasi di bawah, metrik performa model dapat dijabarkan sebagai berikut:
+
+  <img width="928" height="326" alt="Screenshot 2026-06-27 065957" src="https://github.com/user-attachments/assets/6d58991b-a4e8-4190-81e6-bc838a0c8f57" />
+
+* **Grafik Akurasi Model (Kiri):** 
+  Grafik ini mengukur tingkat ketepatan model dalam mengklasifikasikan gerakan shalat. Terlihat bahwa garis hijau (*Training Accuracy*) dan garis putus-putus biru (*Validation Accuracy*) bergerak menanjak naik secara progresif dan konsisten sejak epoch awal. Pada akhir epoch ke-60, akurasi model stabil berada di rentang **85% - 90%**, yang menandakan model sukses mengenali pola gerakan dengan sangat baik.
+  
+* **Grafik Loss Model (Kanan):** 
+  Grafik ini mengukur tingkat kekeliruan atau error prediksi yang dihasilkan oleh model. Garis merah (*Training Loss*) dan garis putus-putus oranye (*Validation Loss*) menunjukkan tren meluncur turun secara drastis dari nilai error awal di atas 1.75 hingga berhasil ditekan hingga stabil di bawah rentang **0.3 - 0.5** pada akhir epoch. Hal ini membuktikan bahwa tingkat kesalahan prediksi model sudah sangat minim.
+
+* **Analisis Fluktuasi Garis Validasi:** 
+  Terdapat dinamika fluktuatif (naik-turun) yang tampak pada garis validasi (warna biru dan oranye) di beberapa epoch pertengahan. Hal ini merupakan kondisi yang wajar dan normal terjadi karena ukuran dataset yang efisien serta adanya penerapan regularisasi **Dropout (0.3)** di dalam arsitektur model. *Dropout* sengaja menonaktifkan sebagian saraf secara acak selama training untuk mencegah model dari ketergantungan penuh (*overfitting* atau menghafal mati data latihan). Tren kedua grafik yang tetap konvergen (bertemu di titik yang sama) membuktikan bahwa model ANN ini aman, sehat, dan memiliki kemampuan generalisasi yang baik untuk pengujian real-time.
+   Sedikit kesalahan klasifikasi hanya terjadi pada gerakan *Salam* yang terkadang tertebak sebagai *Jalsa* (duduk), hal ini sangat logis karena posisi anatomi sendi tubuh pada kedua gerakan tersebut memang sama-sama dilakukan dalam posisi duduk di atas lantai.
