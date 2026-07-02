@@ -49,3 +49,43 @@ Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan po
 ### **Visualisasi Distribusi Data (EDA):**
 Berikut adalah grafik sebaran jumlah gambar pada tiap kelas sebelum dilakukan ekstraksi fitur koordinat:
 <img width="785" height="388" alt="Screenshot 2026-06-27 064327" src="https://github.com/user-attachments/assets/26e3e206-12bf-4b7d-97dd-da5ffb8ad025" />
+Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal untuk tiap gerakan shalat adalah sebagai berikut:
+  * `Jalsa`: > 110 gambar
+  * `Qiyam_Recitation`: ~77 gambar
+  * `Ruku`: ~86 gambar
+  * `Salam_Left`: ~48 gambar
+  * `Salam_Right`: ~93 gambar
+  * `Sujud`: ~99 gambar
+  * `Takbir`: ~75 gambar
+### **Deteksi Data Tidak Seimbang (Imbalanced Classes):**
+  Dari visualisasi terlihat adanya sedikit perbedaan jumlah sampel antar kelas, di mana kelas `Salam_Left` memiliki jumlah data paling sedikit (di bawah 50 sampel) dibandingkan kelas `Jalsa` yang paling dominan. Namun, tingkat ketimpangan ini masih dalam batas aman (tidak ekstrem) sehingga tidak memerlukan teknik *Oversampling* (seperti SMOTE).
+
+### **Insight Awal dari Pola Data:**
+  Meskipun jumlah gambar bervariasi, pola spasial dari 33 titik koordinat sendi yang diekstrak oleh MediaPipe bersifat unik untuk setiap pose. Hal ini memungkinkan algoritma pengenal pola mengenali ciri khas sudut tubuh secara konsisten pada tahap pemodelan.
+
+## 5. Data Preparation
+
+* **Pembersihan Data:**
+  Pembersihan dilakukan saat proses ekstraksi titik koordinat. Gambar-gambar yang gagal dideteksi kerangka skeletonnya oleh MediaPipe secara otomatis dilewati (*dropped*) agar tidak menghasilkan nilai kosong (*null value*) di file CSV.
+* **Encoding Data Kategorik:**
+  * **Label Encoding:** Mengubah label teks string nama gerakan shalat menjadi indeks angka diskrit dari rentang 0-6 (`label_encoder.fit_transform`).
+  * **One-Hot Encoding:** Mengonversi indeks angka tersebut menjadi matriks biner kategorial (`to_categorical`) dengan 7 kelas untuk memenuhi kebutuhan fungsi kehilangan jaringan saraf.
+* **Normalisasi Data Numerik:**
+  MediaPipe secara *default* telah menormalisasi seluruh koordinat $x$ dan $y$ ke dalam rentang nilai 0 hingga 1 berdasarkan dimensi piksel gambar, sehingga data numerik siap diproses tanpa memerlukan penskalaan manual tambahan.
+* **Split Data:**
+  Data dibagi secara proporsional dengan rasio **80% untuk Data Latih (425 sampel)** dan **20% untuk Data Uji (107 sampel)** menggunakan fungsi `train_test_split` dengan parameter `stratify=Y_encoded` guna menjamin distribusi representasi kelas yang seimbang pada kedua bagian data.
+
+## 6. Modeling
+
+* **Pemilihan Algoritma:**
+  Proyek ini memilih dan mengimplementasikan **Artificial Neural Network (ANN)** Sekuensial setelah mengevaluasi keterbatasan **Convolutional Neural Network (CNN)**.
+* **Alasan Pemilihan Algoritma:**
+  1. **CNN (Dibatalkan):** Eksperimen awal menggunakan CNN langsung pada gambar mentah menghasilkan **akurasi yang mandek di angka 41%**. CNN sangat rentan terhadap *overfitting* karena keterbatasan jumlah data gambar, memakan daya komputasi yang berat (lagging di Streamlit), serta sensitif terhadap *background noise*.
+  2. **ANN (Dipilih):** Setelah data diekstrak menjadi koordinat 132 fitur oleh MediaPipe, input data berubah menjadi numerik bersih. ANN sangat optimal, efisien, dan ringan untuk memproses data angka koordinat tersebut, menjadikannya sangat responsif untuk kebutuhan deteksi *real-time*.
+* **Implementasi Model (Arsitektur Jaringan):**
+  Model ANN dibangun menggunakan TensorFlow/Keras dengan arsitektur sekuensial:
+  * *Input Layer*: 132 neuron (menerima 33 sendi $\times$ 4 atribut).
+  * *Hidden Layer 1*: Dense 128 neuron + BatchNormalization + Dropout (0.3).
+  * *Hidden Layer 2*: Dense 64 neuron + Dropout (0.3).
+  * *Output Layer*: Dense 7 neuron dengan fungsi aktivasi *Softmax*.
+  Model dikompilasi menggunakan *Adam Optimizer* dan *Categorical Crossentropy*, lalu dilatih selama 60 epoch.
