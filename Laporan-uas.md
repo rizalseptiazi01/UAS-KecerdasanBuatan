@@ -89,3 +89,13 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
   * *Hidden Layer 2*: Dense 64 neuron + Dropout (0.3).
   * *Output Layer*: Dense 7 neuron dengan fungsi aktivasi *Softmax*.
   Model dikompilasi menggunakan *Adam Optimizer* dan *Categorical Crossentropy*, lalu dilatih selama 60 epoch.
+
+## 7. Evaluation
+
+* **Metrik Evaluasi (Classification Report):**
+  Berdasarkan pengujian final menggunakan 107 data uji yang belum pernah dilihat model, model ANN ini berhasil mendapatkan **Akurasi Makro (Macro Accuracy) mencapai 90% (0.90)**. Nilai *Precision, Recall,* dan *F1-Score* secara rata-rata merata tinggi di atas 85-90% untuk seluruh kelas gerakan shalat.
+* **Confusion Matrix:**
+  <img width="618" height="508" alt="Screenshot 2026-06-27 070154" src="https://github.com/user-attachments/assets/b69cf587-332e-4fda-a272-8f975cb387c8" />
+  Dari matriks kebingungan, garis diagonal utama menunjukkan tumpukan angka tebakan yang benar secara mutlak (contoh: Jalsa benar 21 kali, Qiyam 15 kali, Ruku 14 kali). 
+* **Penjelasan Kinerja Model:**
+  Model ANN terbukti bekerja secara luar biasa stabil dan sehat (*konvergen*), ditunjukkan oleh grafik latihan di mana nilai akurasi terus menanjak dan nilai *loss* menyusut hingga di bawah 0.3. Sedikit kesalahan klasifikasi hanya terjadi pada gerakan *Salam* yang terkadang tertebak sebagai *Jalsa* (duduk), hal ini sangat logis karena posisi anatomi sendi tubuh pada kedua gerakan tersebut memang sama-sama dilakukan dalam posisi duduk di atas lantai.
