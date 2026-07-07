@@ -34,13 +34,13 @@ Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan po
 * **Tipe Data dan Target Klasifikasi:**
     Tipe data input adalah data numerik (berupa koordinat *floating-point*). Target klasifikasi terdiri dari **7 kelas gerakan shalat**, yaitu:
   
-    0. Jalsa
-    1. Qiyam_Recitation
-    2. Ruku
-    3. Salam_Left
-    4. Salam_Right
-    5. Sujud
-    6. Takbir
+    1. Jalsa
+    2. Qiyam_Recitation
+    3. Ruku
+    4. Salam_Left
+    5. Salam_Right
+    6. Sujud
+    7. Takbir
 * **Deskripsi Setiap Fitur (Atribut):**
     Setiap baris data mewakili 1 gambar yang dipecah oleh MediaPipe menjadi **33 titik sendi utama tubuh** (bahu, siku, pergelangan tangan, lutut, tumit, dll). Setiap 1 titik sendi memiliki 4 parameter atribut:
     * `x`: Posisi horizontal sendi (kanan-kiri) dalam ruang kamera.
