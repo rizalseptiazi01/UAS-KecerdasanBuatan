@@ -1,5 +1,7 @@
 # Laporan UAS Kecerdasan Buatan: Klasifikasi Gerakan Shalat Menggunakan MediaPipe dan Artificial Neural Network (ANN)
 
+### Teknik Informatika A
+
 ### **Anggota Kelompok 8:**
 1. Rizal Septiazi - 2406034
 2. M Rafli R - 2406108
