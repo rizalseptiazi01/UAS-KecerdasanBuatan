@@ -33,6 +33,7 @@ Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan po
     * **Data Akhir:** Berupa berkas tabel berekstensi `.csv` bernama `dataset_koordinat_shalat.csv`.
 * **Tipe Data dan Target Klasifikasi:**
     Tipe data input adalah data numerik (berupa koordinat *floating-point*). Target klasifikasi terdiri dari **7 kelas gerakan shalat**, yaitu:
+  
     0. Jalsa
     1. Qiyam_Recitation
     2. Ruku
