@@ -63,15 +63,15 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
   * `Salam_Right`: ~93 gambar
   * `Sujud`: ~99 gambar
   * `Takbir`: ~75 gambar
-### **Analisis Korelasi Antar Fitur (Heatmap / Pairplot):**
+* **Analisis Korelasi Antar Fitur (Heatmap / Pairplot):**
   Pada proyek ini, analisis korelasi linier tradisional (seperti Pearson Correlation Heatmap atau Pairplot) **tidak diimplementasikan**. Hal ini didasarkan pada karakteristik unik dari data koordinat spasial MediaPipe:
   1. **Jumlah Fitur Terlalu Besar (High Dimensionality):** Dataset memiliki 132 fitur kolom angka numerik. Membuat *Pairplot* atau *Heatmap* berukuran $132 \times 132$ akan menghasilkan visualisasi yang sangat padat, tidak terbaca, dan tidak memberikan informasi yang bermakna (*uninterpretable*).
   2. **Korelasi Bersifat Non-Linier Dinamis:** Hubungan antar-sendi tubuh (misalnya korelasi antara posisi koordinat tangan $x\_15$ dan koordinat lutut $y\_25$) berubah secara drastis tergantung pada jenis gerakan shalatnya (saat berdiri vs saat sujud). Korelasi statis linier tidak mampu menggambarkan perubahan geometris tubuh ini secara global.
   3. **Pendekatan Ekstraksi Ciri Langsung oleh Jaringan Saraf:** Tugas untuk mencari korelasi spasial, jarak antar-sendi, dan sudut lekukan tubuh diserahkan sepenuhnya secara otomatis kepada lapisan tersembunyi (*Hidden Layers*) pada arsitektur ANN melalui perhitungan matriks bobot (*weights*), sehingga analisis korelasi manual di awal tidak lagi diperlukan.
-### **Deteksi Data Tidak Seimbang (Imbalanced Classes):**
+* **Deteksi Data Tidak Seimbang (Imbalanced Classes):**
   Dari visualisasi terlihat adanya sedikit perbedaan jumlah sampel antar kelas, di mana kelas `Salam_Left` memiliki jumlah data paling sedikit (di bawah 50 sampel) dibandingkan kelas `Jalsa` yang paling dominan. Namun, tingkat ketimpangan ini masih dalam batas aman (tidak ekstrem) sehingga tidak memerlukan teknik *Oversampling* (seperti SMOTE).
 
-### **Insight Awal dari Pola Data:**
+* **Insight Awal dari Pola Data:**
   Meskipun jumlah gambar bervariasi, pola spasial dari 33 titik koordinat sendi yang diekstrak oleh MediaPipe bersifat unik untuk setiap pose. Hal ini memungkinkan algoritma pengenal pola mengenali ciri khas sudut tubuh secara konsisten pada tahap pemodelan.
 
 ---
