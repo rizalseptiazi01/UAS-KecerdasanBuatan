@@ -116,6 +116,34 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
   
   Sebaliknya, dengan memindahkan tugas ekstraksi visual ke MediaPipe dan menggunakan ANN sebagai otak klasifikasi angka koordinatnya, akurasi berhasil melonjak drastis hingga **90%**. Komputasi yang ringkas membuat model ANN menjadi opsi paling rasional dan terbaik untuk diimplementasikan ke dalam sistem deteksi kamera secara *real-time*.
 
+* **Visualisasi Model:**
+  Visualisasi arsitektur model *Artificial Neural Network* (ANN) yang dibangun menampilkan struktur berlapis (*layered architecture*) yang menggambarkan bagaimana data fitur koordinat sendi tubuh mengalir dan diproses hingga menghasilkan keputusan kelas gerakan shalat:
+
+  ```text
+  [Input Layer: 132 Fitur Koordinat]
+                 │
+                 ▼
+  [Dense Layer: 128 Neuron + ReLU]  ──► (Ekstraksi pola spatial sendi)
+                 │
+                 ▼
+  [Batch Normalization Layer]       ──► (Stabilisasi skala nilai aktivasi)
+                 │
+                 ▼
+  [Dropout Layer: 0.3]              ──► (Regulasi acak untuk anti-overfitting)
+                 │
+                 ▼
+  [Dense Layer: 64 Neuron + ReLU]   ──► (Penyederhanaan fitur tak berwujud)
+                 │
+                 ▼
+  [Dropout Layer: 0.3]              ──► (Regulasi acak tahap kedua)
+                 │
+                 ▼
+  [Output Layer: 7 Neuron + Softmax]──► (Probabilitas 7 Kelas Gerakan Shalat)
+**Penjelasan Aliran Visualisasi:**
+* Input Layer: Menerima 132 nilai angka numerik representasi 33 titik sendi (X, Y, Z, V) dari MediaPipe.
+* Hidden Layer (Dense 128 & 64): Lapisan saraf tersembunyi berstruktur Fully Connected yang bertugas mengalkulasi bobot (weights) dan bias untuk mengenali kecenderungan sudut tubuh unik di setiap pose shalat.
+* Regularization Layer (Batch Normalization & Dropout): Berfungsi menjaga stabilitas komputasi dan memotong sebagian koneksi saraf secara acak sebesar 30% saat latihan agar model tidak bias atau mengalami overfitting.
+* Output Layer: Lapisan akhir yang memetakan hasil komputasi menjadi 7 output kelas menggunakan fungsi Softmax untuk mengeluarkan nilai probabilitas tertinggi gerakan shalat (Jalsa, Ruku, Sujud, dll.).
 ---
 
 ## 6. Evaluation
