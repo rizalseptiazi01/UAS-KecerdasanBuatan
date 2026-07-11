@@ -201,7 +201,10 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
 
 ## 9. Referensi
 
-## 10. Lampiran
+## 10. Lampiran (Menampilkan Projek Deteksi dalam Web) :
 * **Tampilan web**
   <img width="1274" height="640" alt="Screenshot 2026-07-11 114323" src="https://github.com/user-attachments/assets/3c53e1c4-c00e-4791-9216-91fc8e869a16" />
+* **Pendeteksian**
+  <img width="1205" height="522" alt="image" src="https://github.com/user-attachments/assets/81effe6c-503c-44b6-8e18-1c1e9297e267" />
+
 
