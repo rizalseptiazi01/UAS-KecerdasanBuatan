@@ -178,3 +178,23 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
 * **Analisis Fluktuasi Garis Validasi:** 
   Terdapat dinamika fluktuatif (naik-turun) yang tampak pada garis validasi (warna biru dan oranye) di beberapa epoch pertengahan. Hal ini merupakan kondisi yang wajar dan normal terjadi karena ukuran dataset yang efisien serta adanya penerapan regularisasi **Dropout (0.3)** di dalam arsitektur model. *Dropout* sengaja menonaktifkan sebagian saraf secara acak selama training untuk mencegah model dari ketergantungan penuh (*overfitting* atau menghafal mati data latihan). Tren kedua grafik yang tetap konvergen (bertemu di titik yang sama) membuktikan bahwa model ANN ini aman, sehat, dan memiliki kemampuan generalisasi yang baik untuk pengujian real-time.
    Sedikit kesalahan klasifikasi hanya terjadi pada gerakan *Salam* yang terkadang tertebak sebagai *Jalsa* (duduk), hal ini sangat logis karena posisi anatomi sendi tubuh pada kedua gerakan tersebut memang sama-sama dilakukan dalam posisi duduk di atas lantai.
+
+## 8. Kesimpulan dan Rekomendasi
+
+* **Ringkasan Hasil Modeling dan Evaluasi:**
+  Penelitian ini berhasil mengintegrasikan framework *MediaPipe Pose Landmarker* sebagai ekstraktor fitur spasial dengan algoritma *Artificial Neural Network* (ANN) sekuensial untuk mengklasifikasikan gerakan shalat. Melalui proses training selama 60 epoch, model mampu memetakan 132 fitur koordinat 3D dari 33 titik sendi tubuh manusia dengan sangat efisien. Hasil evaluasi akhir menggunakan data uji menunjukkan performa yang sangat memuaskan, di mana model berhasil mencapai nilai **Akurasi Makro (Macro Accuracy) sebesar 90%** serta menunjukkan grafik training yang konvergen dan stabil (nilai loss di bawah 0.5).
+
+* **Apakah Tujuan Proyek Tercapai?**
+  **Ya, tujuan proyek telah tercapai sepenuhnya.** Proyek ini berhasil menjawab permasalahan mendasar dari eksperimen awal menggunakan metode CNN konvensional yang sempat mengalami kegagalan akibat *overfitting* dan keterbatasan daya komputasi (akurasi mandek di 41%). Dengan beralih ke arsitektur ANN berbasis data koordinat numerik bersih, sistem terbukti tidak hanya melonjak drastis akurasinya menjadi 90%, namun juga berhasil memangkas beban komputasi secara signifikan sehingga aplikasi dapat berjalan lancar tanpa interupsi (*anti-lag*) pada perangkat dengan spesifikasi standar.
+
+* **Kelebihan dan Keterbatasan Model:**
+  * **Kelebihan:**
+    1. *Kebal terhadap Efek Lingkungan (Robustness):* Karena input data ANN berupa angka koordinat skeleton tubuh hasil ekstraksi MediaPipe, model tidak akan terkecoh oleh variasi latar belakang ruangan (*background noise*), kondisi pencahayaan, maupun warna dan corak pakaian yang dikenakan oleh pengguna.
+    2. *Komputasi Sangat Ringan:* Model tidak perlu melakukan kalkulasi matriks pixel gambar mentah yang berat tiap detiknya, sehingga proses inferensi (*real-time tracking* via webcam) berjalan sangat responsif dan efisien.
+  * **Keterbatasan:**
+    1. *Ketergantungan terhadap Keterlihatan Tubuh (Full-Body View):* Model sangat sensitif terhadap keutuhan visual objek manusia. Jika kamera terlalu dekat atau terpotong (misal bagian kaki atau pinggang terhalang objek lain), MediaPipe akan gagal menangkap koordinat sendi secara lengkap, yang berpotensi menurunkan akurasi prediksi ANN secara drastis.
+    2. *Prediksi Bersifat Statis Per Frame:* Model saat ini mendeteksi pose shalat berbasis *frame-by-frame* secara instan, sehingga belum mampu membaca kontinuitas transisi gerakan dinamis atau menghitung jumlah rakaat shalat secara runtut berdasarkan durasi waktu.
+
+* **Rekomendasi Perbaikan untuk Pengembangan Selanjutnya:**
+  1. *Ekspansi dan Variasi Dataset:* Menambahkan jumlah sampel gambar baru, khususnya pada kelas yang memiliki distribusi data minimal seperti `Salam_Left`, serta memperkaya variasi sudut pengambilan kamera (sudut pandang serong/diagonal dan samping).
+  2. *Implementasi Algoritma Berbasis Waktu (Time-Series):* Untuk pengembangan sistem di masa depan, disarankan untuk mengombinasikan MediaPipe dengan algoritma **LSTM (Long Short-Term Memory)** atau **GRU**. Hal ini penting agar AI dapat membaca runtunan video gerakan shalat secara kontinu berbasis waktu, sehingga sistem mampu mendeteksi kesalahan transisi gerakan serta melakukan perhitungan (*counting*) jumlah rakaat shalat secara otomatis dan cerdas.
