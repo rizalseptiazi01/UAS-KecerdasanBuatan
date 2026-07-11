@@ -63,7 +63,7 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
   * `Salam_Right`: ~93 gambar
   * `Sujud`: ~99 gambar
   * `Takbir`: ~75 gambar
-## **Analisis Korelasi Antar Fitur (Heatmap / Pairplot):**
+### **Analisis Korelasi Antar Fitur (Heatmap / Pairplot):**
   Pada proyek ini, analisis korelasi linier tradisional (seperti Pearson Correlation Heatmap atau Pairplot) **tidak diimplementasikan**. Hal ini didasarkan pada karakteristik unik dari data koordinat spasial MediaPipe:
   1. **Jumlah Fitur Terlalu Besar (High Dimensionality):** Dataset memiliki 132 fitur kolom angka numerik. Membuat *Pairplot* atau *Heatmap* berukuran $132 \times 132$ akan menghasilkan visualisasi yang sangat padat, tidak terbaca, dan tidak memberikan informasi yang bermakna (*uninterpretable*).
   2. **Korelasi Bersifat Non-Linier Dinamis:** Hubungan antar-sendi tubuh (misalnya korelasi antara posisi koordinat tangan $x\_15$ dan koordinat lutut $y\_25$) berubah secara drastis tergantung pada jenis gerakan shalatnya (saat berdiri vs saat sujud). Korelasi statis linier tidak mampu menggambarkan perubahan geometris tubuh ini secara global.
