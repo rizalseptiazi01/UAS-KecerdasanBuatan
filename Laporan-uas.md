@@ -198,3 +198,8 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
 * **Rekomendasi Perbaikan untuk Pengembangan Selanjutnya:**
   1. *Ekspansi dan Variasi Dataset:* Menambahkan jumlah sampel gambar baru, khususnya pada kelas yang memiliki distribusi data minimal seperti `Salam_Left`, serta memperkaya variasi sudut pengambilan kamera (sudut pandang serong/diagonal dan samping).
   2. *Implementasi Algoritma Berbasis Waktu (Time-Series):* Untuk pengembangan sistem di masa depan, disarankan untuk mengombinasikan MediaPipe dengan algoritma **LSTM (Long Short-Term Memory)** atau **GRU**. Hal ini penting agar AI dapat membaca runtunan video gerakan shalat secara kontinu berbasis waktu, sehingga sistem mampu mendeteksi kesalahan transisi gerakan serta melakukan perhitungan (*counting*) jumlah rakaat shalat secara otomatis dan cerdas.
+
+## 9. Referensi
+
+## 10. Lampiran
+
