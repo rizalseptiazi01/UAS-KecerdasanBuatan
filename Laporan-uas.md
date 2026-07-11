@@ -99,6 +99,22 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
   * *Hidden Layer 2*: Dense 64 neuron + Dropout (0.3).
   * *Output Layer*: Dense 7 neuron dengan fungsi aktivasi *Softmax*.
   Model dikompilasi menggunakan *Adam Optimizer* dan *Categorical Crossentropy*, lalu dilatih selama 60 epoch.
+* **Perbandingan Model:**
+  Dilakukan eksperimen perbandingan antara dua pendekatan model Deep Learning, yaitu *Convolutional Neural Network* (CNN) berbasis gambar mentah dan *Artificial Neural Network* (ANN) berbasis koordinat spasial:
+
+  | Parameter Pembanding | Pendekatan 1: CNN (Eksperimen Awal) | Pendekatan 2: MediaPipe + ANN (Model Terpilih) |
+  | :--- | :--- | :--- |
+  | **Input Data** | Gambar mentah / matriks piksel visual ($224 \times 224$) | 132 Fitur Angka (Koordinat 3D 33 Titik Sendi) |
+  | **Akurasi Akhir** | **41%** (Mandek / Macet) | **90%** (Sangat Tinggi dan Stabil) |
+  | **Kondisi Model** | *Overfitting* (Hanya menghafal dataset latihan) | *Konvergen* (Sehat dan mampu digeneralisasikan) |
+  | **Beban Komputasi** | Sangat Berat (Memproses jutaan piksel tiap detik) | Sangat Ringan (Hanya memproses baris angka numerik) |
+  | **Sensitivitas Lingkungan** | Tinggi (Terkecoh oleh warna baju & *background*) | Kebal (Hanya fokus pada ekstraksi struktur sendi tubuh) |
+  | **Performa Real-Time** | *Lagging* / Patah-patah pada web Streamlit | Responsif, lancar, dan *Anti-Lag* |
+
+* **Analisis Hasil Perbandingan:**
+  Berdasarkan tabel eksperimen di atas, model **MediaPipe + ANN** unggul telak di segala parameter dibandingkan CNN biasa. CNN mengalami kegagalan (akurasi hanya 41%) karena keterbatasan jumlah dataset gambar mentah yang memaksa model mengalami *overfitting*, ditambah gangguan *background noise* ruangan. 
+  
+  Sebaliknya, dengan memindahkan tugas ekstraksi visual ke MediaPipe dan menggunakan ANN sebagai otak klasifikasi angka koordinatnya, akurasi berhasil melonjak drastis hingga **90%**. Komputasi yang ringkas membuat model ANN menjadi opsi paling rasional dan terbaik untuk diimplementasikan ke dalam sistem deteksi kamera secara *real-time*.
 
 ---
 
