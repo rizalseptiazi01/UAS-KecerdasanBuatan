@@ -7,7 +7,7 @@
 2. M Rafli R - 2406108
 
 ### **Domain Proyek (Latar Belakang):**
-Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan posisi tubuh yang baku. Kesalahan posisi atau ketidaksesuaian gerakan sering kali terjadi bagi mualaf atau anak-anak yang sedang belajar shalat. Pemanfaatan Artificial Intelligence berbasis Computer Vision dapat membantu mendeteksi kebenaran gerakan tersebut. Namun, jika menggunakan gambar mentah secara langsung (seperti metode CNN), sistem sering kali terkecoh oleh faktor latar belakang ruangan (*background noise*) atau warna pakaian aktor, serta membutuhkan daya komputasi yang sangat berat untuk dijalankan secara *real-time*. Proyek ini hadir untuk mengatasi masalah tersebut dengan memetakan struktur tubuh menjadi titik koordinat spatial sebelum diklasifikasikan oleh kecerdasan buatan.
+Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan posisi tubuh yang baku. Kesalahan posisi atau ketidaksesuaian gerakan sering kali terjadi bagi mualaf atau anak-anak yang sedang belajar shalat. Pemanfaatan Artificial Intelligence berbasis Computer Vision dapat membantu mendeteksi kebenaran gerakan tersebut. Namun, jika menggunakan gambar mentah secara langsung (seperti metode CNN), sistem sering kali terkecoh oleh faktor latar belakang ruangan (*background noise*) atau warna pakaian aktor, serta membutuhkan daya komputasi yang sangat berat untuk dijalankan secara *real-time*. Proyek ini hadir untuk mengatasi masalah tersebut dengan memetakan struktur tubuh menjadi titik koordinat spatial sebelum diklasifikasikan oleh kecerdasan buatan (Miftahudin et al., 2025).
 
 ---
 
