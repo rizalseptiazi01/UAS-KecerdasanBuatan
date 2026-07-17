@@ -7,7 +7,7 @@
 2. M Rafli R - 2406108
 
 ### **Domain Proyek (Latar Belakang):**
-Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan posisi tubuh yang baku. Kesalahan posisi atau ketidaksesuaian gerakan sering kali terjadi bagi mualaf atau anak-anak yang sedang belajar shalat. Pemanfaatan Artificial Intelligence berbasis Computer Vision dapat membantu mendeteksi kebenaran gerakan tersebut. Namun, jika menggunakan gambar mentah secara langsung (seperti metode CNN), sistem sering kali terkecoh oleh faktor latar belakang ruangan (*background noise*) atau warna pakaian aktor, serta membutuhkan daya komputasi yang sangat berat untuk dijalankan secara *real-time*. Proyek ini hadir untuk mengatasi masalah tersebut dengan memetakan struktur tubuh menjadi titik koordinat spatial sebelum diklasifikasikan oleh kecerdasan buatan. (Miftahudin et al., 2025).
+Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan posisi tubuh yang baku. Kesalahan posisi atau ketidaksesuaian gerakan sering kali terjadi bagi mualaf atau anak-anak yang sedang belajar shalat.(Rahman, M. M., Alharazi, R. A. A., & Badri, M. K. I. b. Z. (2023). Pemanfaatan Artificial Intelligence berbasis Computer Vision dapat membantu mendeteksi kebenaran gerakan tersebut. Namun, jika menggunakan gambar mentah secara langsung (seperti metode CNN), sistem sering kali terkecoh oleh faktor latar belakang ruangan (*background noise*) atau warna pakaian aktor, serta membutuhkan daya komputasi yang sangat berat untuk dijalankan secara *real-time*. Proyek ini hadir untuk mengatasi masalah tersebut dengan memetakan struktur tubuh menjadi titik koordinat spatial sebelum diklasifikasikan oleh kecerdasan buatan. (Miftahudin et al., 2025).
 
 ---
 
@@ -202,6 +202,7 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
 ## 9. Referensi
 * Miftahuddin, F., Musthofa, A., Pratama, A. A., Syifasultana, D. and Al Mumtaz, F. J., 2025. Identification of prayer movements using Convolutional Neural Network classification model and Prewitt and morphology image processing. MALCOM: Indonesian Journal of Machine Learning and Computer Science, 5(1), pp. 473–483.
 * Igiri, C. P., Anyama, O. U., & Ita, S. A. (2015). Effect of learning rate on Artificial Neural Network in machine learning. International Journal of Engineering Research & Technology (IJERT), 4(02), 359–363. https://www.ijert.org
+* Rahman, M. M., Alharazi, R. A. A., & Badri, M. K. I. b. Z. (2023). Intelligent system for Islamic prayer (salat) posture monitoring. IAES International Journal of Artificial Intelligence (IJ-AI), 12(1), 220–231. https://doi.org/10.11591/ijai.v12.i1.pp220-231
 ## 10. Lampiran (Menampilkan Projek Deteksi dalam Web) 
 * **Tampilan web**
   <img width="1274" height="640" alt="Screenshot 2026-07-11 114323" src="https://github.com/user-attachments/assets/3c53e1c4-c00e-4791-9216-91fc8e869a16" />
