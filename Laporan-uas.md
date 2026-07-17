@@ -20,7 +20,7 @@ Gerakan shalat merupakan serangkaian aktivitas fisik yang memiliki urutan dan po
 * **Siapa User/Pengguna Sistem:**
     Mualaf, anak-anak yang sedang belajar shalat, maupun instruktur agama sebagai alat bantu koreksi gerakan shalat otomatis.
 * **Solusi dan Manfaat Implementasi AI:**
-    Solusi yang diajukan adalah mengombinasikan **MediaPipe Pose Landmarker** (ekstraktor fitur) dengan **Artificial Neural Network (ANN)**. Manfaatnya, komputasi menjadi jauh lebih ringan untuk pelacakan kamera web secara langsung dan sistem tetap konsisten mendeteksi gerakan terlepas dari warna pakaian atau lokasi pengguna.
+    Solusi yang diajukan adalah mengombinasikan **MediaPipe Pose Landmarker** (ekstraktor fitur) dengan **Artificial Neural Network (ANN)**. Manfaatnya, komputasi menjadi jauh lebih ringan untuk pelacakan kamera web secara langsung dan sistem tetap konsisten mendeteksi gerakan terlepas dari warna pakaian atau lokasi pengguna Igiri, C. P., Anyama, O. U., & Ita, S. A. (2015).
 
 ---
 
