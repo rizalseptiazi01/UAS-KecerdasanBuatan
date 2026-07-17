@@ -200,7 +200,8 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
   2. *Implementasi Algoritma Berbasis Waktu (Time-Series):* Untuk pengembangan sistem di masa depan, disarankan untuk mengombinasikan MediaPipe dengan algoritma **LSTM (Long Short-Term Memory)** atau **GRU**. Hal ini penting agar AI dapat membaca runtunan video gerakan shalat secara kontinu berbasis waktu, sehingga sistem mampu mendeteksi kesalahan transisi gerakan serta melakukan perhitungan (*counting*) jumlah rakaat shalat secara otomatis dan cerdas.
 
 ## 9. Referensi
-* Miftahuddin, F., Musthofa, A., Pratama, A. A., Syifasultana, D. and Al Mumtaz, F. J., 2025. Identification of prayer movements using Convolutional Neural Network classification model and Prewitt and morphology image processing. MALCOM: Indonesian Journal of Machine Learning and Computer Science, 5(1), pp. 473–483. 
+* Miftahuddin, F., Musthofa, A., Pratama, A. A., Syifasultana, D. and Al Mumtaz, F. J., 2025. Identification of prayer movements using Convolutional Neural Network classification model and Prewitt and morphology image processing. MALCOM: Indonesian Journal of Machine Learning and Computer Science, 5(1), pp. 473–483.
+* Igiri, C. P., Anyama, O. U., & Ita, S. A. (2015). Effect of learning rate on Artificial Neural Network in machine learning. International Journal of Engineering Research & Technology (IJERT), 4(02), 359–363. https://www.ijert.org
 ## 10. Lampiran (Menampilkan Projek Deteksi dalam Web) 
 * **Tampilan web**
   <img width="1274" height="640" alt="Screenshot 2026-07-11 114323" src="https://github.com/user-attachments/assets/3c53e1c4-c00e-4791-9216-91fc8e869a16" />
