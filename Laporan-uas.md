@@ -96,7 +96,7 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
   Proyek ini memilih dan mengimplementasikan **Artificial Neural Network (ANN)** Sekuensial setelah mengevaluasi keterbatasan **Convolutional Neural Network (CNN)**.
 * **Alasan Pemilihan Algoritma:**
   1. **CNN (Dibatalkan):** Eksperimen awal menggunakan CNN langsung pada gambar mentah menghasilkan **akurasi yang mandek di angka 41%**. CNN sangat rentan terhadap *overfitting* karena keterbatasan jumlah data gambar, memakan daya komputasi yang berat (lagging di Streamlit), serta sensitif terhadap *background noise*.(Mohammadpour, L, et al., 2022)
-  2. **ANN (Dipilih):** Setelah data diekstrak menjadi koordinat 132 fitur oleh MediaPipe, input data berubah menjadi numerik bersih. ANN sangat optimal, efisien, dan ringan untuk memproses data angka koordinat tersebut, menjadikannya sangat responsif untuk kebutuhan deteksi *real-time*.
+  2. **ANN (Dipilih):** Setelah data diekstrak menjadi koordinat 132 fitur oleh MediaPipe, input data berubah menjadi numerik bersih. ANN sangat optimal, efisien, dan ringan untuk memproses data angka koordinat tersebut, menjadikannya sangat responsif untuk kebutuhan deteksi *real-time*. (Tzeico J. Sánchez-Vicinaiz et al,.2024).
 * **Implementasi Model (Arsitektur Jaringan):**
   Model ANN dibangun menggunakan TensorFlow/Keras dengan arsitektur sekuensial:
   * *Input Layer*: 132 neuron (menerima 33 sendi $\times$ 4 atribut).
@@ -205,6 +205,7 @@ Berdasarkan diagram batang distribusi jumlah gambar per kelas, sebaran data awal
 * Rahman, M. M., Alharazi, R. A. A., & Badri, M. K. I. b. Z. (2023). Intelligent system for Islamic prayer (salat) posture monitoring. IAES International Journal of Artificial Intelligence (IJ-AI), 12(1), 220–231. https://doi.org/10.11591/ijai.v12.i1.pp220-231
 * Suteja, J., & Setiawan, B. (2025). Strategi deep learning dalam mengembangkan kecerdasan artifisial pada pembelajaran Pendidikan Agama Islam di sekolah. Serumpun International Conference Proceedings (SICP), 1(1), 16–26.
 * Mohammadpour, L., Ling, T. C., Liew, C. S., & Aryanfar, A. (2022). A survey of CNN-based network intrusion detection. Applied Sciences, 12(16), 8162. https://doi.org/10.3390/app12168162
+* Tzeico J. Sánchez-Vicinaiz et al,.(2024). MediaPipe Frame and Convolutional Neural Networks-Based Fingerspelling Detection in Mexican Sign Language
 ## 10. Lampiran (Menampilkan Projek Deteksi dalam Web) 
 * **Tampilan web**
   <img width="1274" height="640" alt="Screenshot 2026-07-11 114323" src="https://github.com/user-attachments/assets/3c53e1c4-c00e-4791-9216-91fc8e869a16" />
